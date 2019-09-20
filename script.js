@@ -3,7 +3,6 @@ const btnCorrect = document.getElementById("Correct");
 const btnHigh = document.getElementById("High");
 
 let lastGuess = 500;
-let answer = Math.ceil(lastGuess);
 
 btnLow.addEventListener("click", function () {
     GuessNumber("low");
@@ -34,7 +33,7 @@ function GuessNumber(input) {
         newGuess = Math.floor(X / 2);
         lastGuess = lastGuess + newGuess;
 
-        console.log(answer);
+        console.log(lastGuess);
     }
 
 
@@ -43,7 +42,7 @@ function GuessNumber(input) {
         lastGuess = lastGuess - newGuess;
         
 
-        console.log(answer);
+        console.log(lastGuess);
     }
 
 
