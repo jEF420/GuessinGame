@@ -61,5 +61,6 @@ function GuessNumber(input) {
         console.log(lastGuess);
     }
     
+    
 
 }
