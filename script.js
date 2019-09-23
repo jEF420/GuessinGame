@@ -17,38 +17,33 @@ btnCorrect.addEventListener("click", function() {
 });
 
 
-var X = 1;
-var Y = 1000;
+let i = 0;
 let lastGuess = 500;
-var newGuess;
+var newGuess = 250;
 showBox.innerHTML = "the computers guess is " + lastGuess;
 //var rd = Math.floor(Math.random() * lastGuess);
 
 function GuessNumber(input) {
 
-    if (input == "correct") {
-        console.log("yes");
-        alert("Think of new number!\nReload the site!");
-
-    } else if (input == "high" && lastGuess >= 500) {
-        X = Y - lastGuess;
-        newGuess = Math.round(X / 2);
-        lastGuess = lastGuess + newGuess;
-        showBox.innerHTML = "the computers guess is " + lastGuess;
+    if (input == "low" && i <= 10) {
+        lastGuess = Math.round(lastGuess -= newGuess);
+        Math.round(newGuess /= 2);
+        showBox.innerHTML = "the computers guess is " + Math.round(lastGuess);
         console.log(lastGuess);
-    } else if (input == "low" && lastGuess > 500) {
-        newGuess = Math.round((lastGuess - 500) / 2);
-        lastGuess = lastGuess - newGuess;
-        showBox.innerHTML = "the computers guess is " + lastGuess;
+        i++;
+    } else if (input == "high" && i <= 10) {
+        lastGuess = Math.round(lastGuess += newGuess);
+        Math.round(newGuess /= 2);
+        showBox.innerHTML = "the computers guess is " + Math.round(lastGuess);
         console.log(lastGuess);
-    } else if (input == "high" && lastGuess < 500) {
-        lastGuess = Math.round((lastGuess / 2) + lastGuess);
-        showBox.innerHTML = "the computers guess is " + lastGuess;
-        console.log(lastGuess);
-    } else if (input == "low" && lastGuess <= 500) {
-        lastGuess = Math.round(lastGuess / 2);
-        showBox.innerHTML = "the computers guess is " + lastGuess;
-        console.log(lastGuess);
+        i++;
+    } else if (input == "correct" && i <= 10) {
+        showBox.innerHTML = "the computers guess is correct";
+        lastGuess = 500;
+        newGuess = 250;
+        i = 0;
+    } else {
+        showBox.innerHTML = "You are dont have a number";
     }
 
 
