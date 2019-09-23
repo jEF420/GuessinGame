@@ -18,10 +18,10 @@ btnCorrect.addEventListener("click", function() {
 
 
 var X = 1;
-var Y = 1001;
+var Y = 1000;
 let lastGuess = 500;
 var newGuess;
-showBox.innerHTML = "Computer answer  is " + lastGuess;
+showBox.innerHTML = "the computers guess is " + lastGuess;
 //var rd = Math.floor(Math.random() * lastGuess);
 
 function GuessNumber(input) {
@@ -32,22 +32,22 @@ function GuessNumber(input) {
 
     } else if (input == "high" && lastGuess >= 500) {
         X = Y - lastGuess;
-        newGuess = Math.floor(X / 2);
+        newGuess = Math.round(X / 2);
         lastGuess = lastGuess + newGuess;
-        showBox.innerHTML = "Computer answer  is " + lastGuess;
+        showBox.innerHTML = "the computers guess is " + lastGuess;
         console.log(lastGuess);
     } else if (input == "low" && lastGuess > 500) {
-        newGuess = Math.floor((lastGuess - 500) / 2);
+        newGuess = Math.round((lastGuess - 500) / 2);
         lastGuess = lastGuess - newGuess;
-        showBox.innerHTML = "Computer answer  is " + lastGuess;
+        showBox.innerHTML = "the computers guess is " + lastGuess;
         console.log(lastGuess);
     } else if (input == "high" && lastGuess < 500) {
-        lastGuess = Math.floor((lastGuess / 2) + lastGuess);
-        showBox.innerHTML = "Computer answer  is " + lastGuess;
+        lastGuess = Math.round((lastGuess / 2) + lastGuess);
+        showBox.innerHTML = "the computers guess is " + lastGuess;
         console.log(lastGuess);
     } else if (input == "low" && lastGuess <= 500) {
-        lastGuess = Math.floor(lastGuess / 2);
-        showBox.innerHTML = "Computer answer  is " + lastGuess;
+        lastGuess = Math.round(lastGuess / 2);
+        showBox.innerHTML = "the computers guess is " + lastGuess;
         console.log(lastGuess);
     }
 
